@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Bold.woff2') format('woff2'),
+  url('../assets/fonts/DMSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-Regular.woff2') format('woff2'),
+  url('../assets/fonts/DMSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Domaine Text Test';
+  src: url('../assets/fonts/DomaineTextTest-Bold.woff2') format('woff2'),
+  url('../assets/fonts/DomaineTextTest-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Domaine Text Test';
+  src: url('../assets/fonts/DomaineTextTest-Regular.woff2') format('woff2'),
+  url('../assets/fonts/DomaineTextTest-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Domaine Display Test';
+  src: url('../assets/fonts/DomaineDisplayTest-Regular.woff2') format('woff2'),
+  url('../assets/fonts/DomaineDisplayTest-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Domaine Display Test';
+  src: url('../assets/fonts/DomaineDisplayTest-Bold.woff2') format('woff2'),
+  url('../assets/fonts/DomaineDisplayTest-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+

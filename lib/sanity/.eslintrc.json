@@ -1,0 +1,7 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["@sanity/eslint-config-studio"],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": "warn"
+  }
+}
