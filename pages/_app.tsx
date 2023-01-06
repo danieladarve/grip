@@ -19,6 +19,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [menuOpen]);
 
+  useEffect(() => {
+    const appHeight = () => {
+      const doc = document.documentElement;
+      doc.style.setProperty("--main-app-height", `${window.innerHeight}px`);
+    };
+
+    window.addEventListener("resize", appHeight);
+    appHeight();
+
+    return () => window.removeEventListener("resize", appHeight);
+  }, []);
+
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}

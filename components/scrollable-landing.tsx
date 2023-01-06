@@ -51,10 +51,10 @@ const ScrollableLanding = ({
   return (
     <section
       ref={ref}
-      className="scrollable-section bg-grip-azure pt-[74px] lg:pt-0"
+      className="scrollable-section landing bg-grip-azure pt-[74px] lg:pt-0"
     >
-      <div className="relative h-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2">
-        <div className="relative z-50 h-full">
+      <div className="relative h-full w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2">
+        <div className="relative z-50 h-full w-full">
           <div className="flex justify-end pt-8 lg:hidden lg:pt-0">
             <picture className="">
               <img
@@ -97,7 +97,11 @@ const ScrollableLanding = ({
 
         <div className="absolute bottom-0 z-0 hidden lg:block">
           <picture>
-            <img alt="Grip" src={image} />
+            <img
+              className="w-full max-w-[220px] xl:max-w-[297px]"
+              alt="Grip"
+              src={image}
+            />
           </picture>
         </div>
       </div>

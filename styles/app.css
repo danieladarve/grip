@@ -1,3 +1,8 @@
+.fullscreen {
+  height: 100vh;
+  height: var(--main-app-height);
+}
+
 /* Buttons */
 button.button-3d {
   @apply relative inline-block outline-0 border bg-white text-base font-dm-sans tracking-wide rounded-full px-6 py-3 leading-none;
@@ -221,7 +226,7 @@ button.cta {
   }
 
   .submit-btn-container {
-    @apply pl-1 pr-2.5 pt-4 flex w-full justify-end lg:justify-start items-center;
+    @apply pl-1 pr-2 pt-4 flex w-full justify-end lg:justify-start items-center;
     button {
       @apply ml-1;
     }
@@ -234,8 +239,8 @@ button.cta {
 
 /* Scrollable Sections */
 .scrollable-section {
-  @apply relative h-screen w-full snap-center snap-always overflow-hidden z-10;
-
+  @apply ease-linear duration-300 relative fullscreen w-full snap-center snap-always overflow-hidden z-10;
+  transition-property: height;
   /* Svg */
   .svg-container {
     @apply w-full;
@@ -247,7 +252,7 @@ button.cta {
   }
   &.bg-grip-yellow {
     .svg-container {
-      @apply  px-8 lg:pl-[27%] md:pr-14 lg:pr-14 md:translate-y-[28%] translate-y-[-20%];
+      @apply  pl-[24%] pr-[5%]  md:pr-14 lg:pr-14 lg:pl-[27%] sm:translate-y-[28%] translate-y-[-20%];
     }
   }
 
@@ -259,7 +264,7 @@ button.cta {
 
   &.bg-grip-coral {
     .svg-container {
-      @apply pr-[5%] md:pr-[35%] lg:pl-[20%] lg:pr-[20%] translate-y-[2%] md:translate-y-[8%] lg:translate-y-[20%];
+      @apply pr-[5%] sm:pr-[22%] md:pr-[35%] lg:pl-[20%] lg:pr-[20%] translate-y-[2%] md:translate-y-[8%] lg:translate-y-[20%];
     }
   }
 }
@@ -333,11 +338,11 @@ button.cta {
 
 .bottom-mobile-nav {
   @apply fixed transition-all ease-in-out duration-700 translate-y-full left-0 right-0 z-50 bg-grip-azure lg:hidden;
-  bottom: calc((100vh + 72px) * -1);
+  bottom: calc((var(--main-app-height) + 72px) * -1);
   &.active {
     bottom: 72px;
     &.open {
-      bottom: 100vh;
+      bottom: var(--main-app-height);
     }
   }
 
@@ -354,11 +359,11 @@ button.cta {
 }
 
 .mobile-form {
-  @apply fixed transition-all ease-in-out duration-700 translate-y-full left-0 right-0 z-30 w-full bg-grip-midnight;
-  height: calc(100vh - 72px);
-  bottom: calc((100vh + 72px) * -1);
+  @apply fixed transition-all ease-in-out duration-700 translate-y-full left-0 right-0 z-[80] w-full bg-grip-midnight;
+  height: calc(var(--main-app-height) - 72px);
+  bottom: calc((var(--main-app-height) + 72px) * -1);
   &.active {
-    bottom: calc(100vh - 72px);
+    bottom: calc(var(--main-app-height) - 72px);
   }
 }
 
@@ -367,20 +372,24 @@ button.cta {
 .inner-footer {
   @apply fixed transition-all ease-in-out duration-700 translate-y-full left-0 right-0 z-[49] bg-grip-midnight overflow-hidden lg:hidden;
   bottom: 0;
-  height: calc(100vh - 72px);
+  height: calc(var(--main-app-height) - 72px);
   &.open {
-    bottom: calc(100vh - 72px);
+    bottom: calc(var(--main-app-height) - 72px);
   }
 }
 
 
 .mobile-top-nav {
-  @apply fixed top-0 z-0 opacity-0 right-0 w-full z-50 py-5  md:pl-16 md:pr-14 lg:hidden lg:pl-28 lg:pr-14;
+  @apply fixed transition-all ease-out duration-200 top-0 z-0 opacity-0 right-0 left-0 w-full z-50 py-5 lg:hidden;
+  &:not(.init) {
+    @apply pl-6 pr-0 md:pl-16 lg:pl-28;
+  }
+
   &.active {
     @apply opacity-100;
   }
   ul {
-    @apply px-6 border-t border-black;
+    @apply px-4 md:px-6 border-t border-black;
     a{
       @apply py-2 pr-0 !important;
     }

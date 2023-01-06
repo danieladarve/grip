@@ -20,7 +20,11 @@ const isLast = (i: number, sections: GripStateSection[]) => {
 };
 
 const Scroller = ({ sections, landing, social }: ScrollerProps) => {
-  const { insertSection, sections: storeSections } = useGripStore();
+  const {
+    insertSection,
+    sections: storeSections,
+    currentIndex,
+  } = useGripStore();
 
   const { ref, inView } = useInView({
     /* Optional options */
@@ -53,9 +57,15 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
 
       <div
         ref={ref}
-        className="mobile-snap relative z-40 flex h-screen w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:hidden"
+        className="mobile-snap fullscreen relative z-40 flex w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:hidden"
       >
-        <div className={clsx("mobile-top-nav", inView ? "active" : "")}>
+        <div
+          className={clsx(
+            "mobile-top-nav",
+            inView ? "active" : "",
+            currentIndex === 0 ? "init" : ""
+          )}
+        >
           <MobileNavigation />
         </div>
         {storeSections.map((sectionState: GripStateSection, i, row) => {

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main-app-height: 100%;
+}
+
 @layer base {
   html,
   body {
@@ -9,6 +13,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     @apply p-0 m-0 font-dm-sans leading-6;
+    height: 100vh;
+    height: var(--main-app-height);
   }
 
   p {
@@ -16,18 +22,21 @@
   }
 
   h1, .h1 {
-    @apply font-dm-sans font-normal leading-[125%] text-3xl lg:text-4xl;
+    @apply font-dm-sans font-normal leading-[125%] text-3xl md:text-2xl lg:text-3xl xl:text-4xl;
   }
 
   h2, .h2 {
-    @apply font-dm-sans font-normal leading-[125%] text-xl md:text-2xl lg:text-3xl;
+    @apply font-dm-sans font-normal leading-[125%] text-xl lg:text-2xl xl:text-3xl;
   }
 
   h3, .h3 {
     @apply font-domaine-text font-normal text-lg md:text-xl lg:text-2xl;
   }
+
+
 }
 
 html {
   font-size: 16px;
 }
+

@@ -41,7 +41,7 @@ export default async function sendEmail(
       let error = false;
       await sendgrid
         .send({
-          to: to.split(","),
+          to: to.replaceAll(" ", "").split(","),
           from: "testing@evermade.life",
           // from: "getintouch@gripinsights.com.au",
           subject: body?.settings?.subject || "Contact from Grip",

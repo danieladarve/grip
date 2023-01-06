@@ -38,7 +38,7 @@ const HomePage = ({ settings }: { settings: Settings }) => {
       />
       <DesktopNavigation />
 
-      <section className="main relative h-screen w-full snap-y overflow-y-auto overscroll-y-contain scrollbar-hide lg:snap-mandatory">
+      <section className="main relative h-full w-full snap-y overflow-y-auto overscroll-y-contain scrollbar-hide lg:snap-mandatory">
         <Scroller social={social} sections={sections} landing={landing} />
       </section>
       <div

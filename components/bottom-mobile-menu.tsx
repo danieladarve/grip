@@ -22,7 +22,7 @@ const BottomMobileMenu = ({ settings }: { settings: Settings }) => {
     <div className={clsx("inner-footer relative", { open: menuOpen })}>
       <MobileForm />
       <div className="relative h-full ">
-        <div className="px-16 pt-[20%] text-white">
+        <div className="relative z-30 px-16 pt-[20%] text-white">
           <h3 className="mb-6">{title}</h3>
           <div className="mb-3 text-sm">
             <PortableText value={body} />
