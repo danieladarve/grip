@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Layout from "@/components/layout";
 import HomePage from "@/components/pages/home";
 import { getSettings } from "@/lib/sanity/client";

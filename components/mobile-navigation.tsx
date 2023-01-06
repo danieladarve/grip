@@ -1,6 +1,5 @@
 import { useGripStore } from "../store/grip-slice";
 import ArrowDown from "@/components/svg/arrow-down";
-import { handleIntoView } from "@/components/desktop-navigation";
 import clsx from "clsx";
 
 const MobileNavigation = () => {
@@ -22,6 +21,7 @@ const MobileNavigation = () => {
               <a
                 href="#"
                 className="flex w-full items-center"
+                aria-label={`Go to ${sections[currentIndex].section.menuTitle}`}
                 onClick={(event) => event.preventDefault()}
               >
                 <span>{sections[currentIndex].section.menuTitle}</span>
@@ -36,6 +36,7 @@ const MobileNavigation = () => {
               <a
                 href="#"
                 className="flex w-full items-center"
+                aria-label={`Go to next section`}
                 onClick={(event) => {
                   if (!sections[currentIndex + 1]) {
                     event.preventDefault();

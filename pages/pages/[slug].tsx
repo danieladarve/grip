@@ -1,23 +1,14 @@
-import Layout from "@/components/layout";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import ErrorPage from "next/error";
 import { getAllPagesWithSlug, getPageBySlug } from "@/lib/sanity/client";
 import type { Page as PageType, Settings } from "@/lib/sanity/groq";
-import SideContact from "@/components/side-contact";
 import React, { useEffect } from "react";
 import {
   encryptThis,
   transformData,
 } from "@/components/form-builder/utils/validator";
-import Button from "@/components/button";
 import { useGripStore } from "../../store/grip-slice";
-import { PortableText } from "@portabletext/react";
-import ArrowDown from "@/components/svg/arrow-down";
 import { NextSeo } from "next-seo";
-import clsx from "clsx";
-import MobileBottomNav from "@/components/mobile-bottom-nav";
-import BottomMobileMenu from "@/components/bottom-mobile-menu";
 import useSetSettings from "@/lib/hooks/useSetSettings";
 import StandardPage from "@/components/pages/standard";
 

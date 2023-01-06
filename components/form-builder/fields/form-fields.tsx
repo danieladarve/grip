@@ -1,16 +1,7 @@
-import { ErrorMessage, Field, Formik, Form as FormikForm } from "formik";
+import { ErrorMessage, Field } from "formik";
 import { useState } from "react";
 import type { IFormProps } from "@/components/form-builder/types";
 import clsx from "clsx";
-
-export const Form = (props: any) => {
-  console.log(props);
-  return (
-    <Formik {...props}>
-      <FormikForm noValidate>{props.children}</FormikForm>
-    </Formik>
-  );
-};
 
 export const TextField = (props: IFormProps) => {
   const {
@@ -24,7 +15,7 @@ export const TextField = (props: IFormProps) => {
     required,
     ...rest
   } = props;
-  console.log(name);
+
   const [showHidePassword, changeShowHidePassword] = useState(false);
   return (
     <div className={clsx(width, css, `form-control-text`)}>

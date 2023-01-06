@@ -41,13 +41,11 @@ export default async function revalidate(
 
     if (isValidSignature === false) {
       const message = "Invalid signature";
-      console.log(message);
       return res.status(401).send(message);
     }
 
     if (typeof body._id !== "string" || !body._id) {
       const invalidId = "Invalid _id";
-      console.error(invalidId, { body });
       return res.status(400).send(invalidId);
     }
 
@@ -57,7 +55,6 @@ export default async function revalidate(
     const updatedRoutes = `Updated routes: ${staleRoutes.join(", ")}`;
     return res.status(200).send(updatedRoutes);
   } catch (err) {
-    console.error(err);
     return res.status(500).send(err.message);
   }
 }

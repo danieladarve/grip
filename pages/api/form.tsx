@@ -26,7 +26,6 @@ export default async function sendEmail(
     }
 
     const googleResponse = await fetchGoogleVerification(body);
-    console.log("Google recaptcha verification", googleResponse);
 
     if (googleResponse?.score > 0.5) {
       const to = Cipher.decode(

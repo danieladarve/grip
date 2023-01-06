@@ -3,7 +3,7 @@ import type { GripStateSection } from "../store/grip-slice";
 import { useGripStore } from "../store/grip-slice";
 import ScrollableSection from "@/components/scrollable-section";
 import ScrollableLanding from "@/components/scrollable-landing";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
 import MobileNavigation from "@/components/mobile-navigation";

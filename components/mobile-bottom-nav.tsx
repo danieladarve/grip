@@ -25,13 +25,22 @@ const MobileBottomNav = ({ social }: { social?: SocialLinks }) => {
       <div className="flex">
         {!mobileFormOpen ? (
           <button
+            aria-label="Open Mobile Menu"
             className="block h-auto w-8 py-2.5"
             onClick={() => handleMobileMenu()}
           >
             <span className=" table h-1 w-full bg-grip-midnight"></span>
           </button>
         ) : (
-          <a className="" onClick={() => handleMobileMenu()}>
+          <a
+            href="#"
+            className=""
+            aria-label="Close Menu"
+            onClick={(event) => {
+              event.preventDefault();
+              handleMobileMenu();
+            }}
+          >
             <Close className="" />
           </a>
         )}

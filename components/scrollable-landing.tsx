@@ -6,7 +6,6 @@ import { useInView } from "react-intersection-observer";
 import { useGripStore } from "../store/grip-slice";
 import { handleIntoView } from "@/components/desktop-navigation";
 import type { SocialLinks } from "@/lib/sanity/groq";
-import MobileBottomNav from "@/components/mobile-bottom-nav";
 
 interface ScrollableLanding extends Landing {
   isLast: boolean;
@@ -61,6 +60,8 @@ const ScrollableLanding = ({
                 className="w-full max-w-[117px] -scale-x-100 "
                 src={image}
                 alt={title ?? ""}
+                width="297"
+                height="245"
               />
             </picture>
           </div>
@@ -102,7 +103,7 @@ const ScrollableLanding = ({
               alt="Grip"
               src={image}
               width="297"
-              height={245}
+              height="245"
             />
           </picture>
         </div>

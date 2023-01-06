@@ -109,7 +109,6 @@ const FormBuilder: React.FC<
 
   const handleReCaptchaVerify = useCallback(async () => {
     if (!executeRecaptcha) {
-      console.error("Execute recaptcha not yet available");
       return;
     }
 
