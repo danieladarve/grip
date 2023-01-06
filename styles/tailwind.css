@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --main-app-height: 100%;
-}
-
 @layer base {
   html,
   body {
