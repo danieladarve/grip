@@ -53,7 +53,7 @@ const ScrollableLanding = ({
       ref={ref}
       className="scrollable-section landing bg-grip-azure pt-[74px] lg:pt-0"
     >
-      <div className="relative h-full w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2">
+      <div className="fullscreen relative w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2">
         <div className="relative z-50 h-full w-full">
           <div className="flex justify-end pt-8 lg:hidden lg:pt-0">
             <picture className="">
