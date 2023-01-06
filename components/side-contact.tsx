@@ -79,7 +79,14 @@ const SideContact = ({
               >
                 Try Grip Beta
               </Button>
-              <a className="mt-4" onClick={() => setMenuOpen()}>
+              <a
+                href="#"
+                className="mt-4"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setMenuOpen();
+                }}
+              >
                 <Close />
               </a>
             </div>
@@ -111,8 +118,12 @@ const SideContact = ({
                     formData={formItems}
                     thankYou={formSettings.thankYou}
                     onSubmit={async (values) =>
-                      handleSubmit(values, formSettings)
+                      handleSubmit(values, {
+                        ...formSettings,
+                        formId: "desktop",
+                      })
                     }
+                    formId="desktop"
                   />
                 </div>
               </div>

@@ -101,6 +101,8 @@ const ScrollableLanding = ({
               className="w-full max-w-[220px] xl:max-w-[297px]"
               alt="Grip"
               src={image}
+              width="297"
+              height={245}
             />
           </picture>
         </div>

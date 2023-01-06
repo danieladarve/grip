@@ -16,6 +16,7 @@ export const TextField = (props: IFormProps) => {
   const {
     name,
     label,
+    id,
     css,
     width,
     placeholder,
@@ -23,7 +24,7 @@ export const TextField = (props: IFormProps) => {
     required,
     ...rest
   } = props;
-
+  console.log(name);
   const [showHidePassword, changeShowHidePassword] = useState(false);
   return (
     <div className={clsx(width, css, `form-control-text`)}>
@@ -39,7 +40,7 @@ export const TextField = (props: IFormProps) => {
           className="form-control-text"
           type={!showHidePassword && name === "password" ? "password" : "text"}
           name={name}
-          id={name}
+          id={id}
           placeholder={placeholder || ""}
           autoComplete="off"
           {...rest}
@@ -63,6 +64,7 @@ export const TextField = (props: IFormProps) => {
 export const TextAreaField = (props: IFormProps) => {
   const {
     name,
+    id,
     label,
     width,
     css,
@@ -85,7 +87,7 @@ export const TextAreaField = (props: IFormProps) => {
           className="form-control"
           as="textarea"
           name={name}
-          id={name}
+          id={id}
           placeholder={placeholder || ""}
           autoComplete="off"
           {...rest}
@@ -102,6 +104,7 @@ export const TextAreaField = (props: IFormProps) => {
 export const SelectField = (props: IFormProps) => {
   const {
     name,
+    id,
     label,
     css,
     width,
@@ -124,7 +127,7 @@ export const SelectField = (props: IFormProps) => {
       <div className="form-item">
         <Field
           as="select"
-          id={name}
+          id={id}
           name={name}
           {...rest}
           className="form-control"
@@ -148,8 +151,17 @@ export const SelectField = (props: IFormProps) => {
 };
 
 export const RadioField = (props: IFormProps) => {
-  const { name, label, css, width, options, description, required, ...rest } =
-    props;
+  const {
+    name,
+    id,
+    label,
+    css,
+    width,
+    options,
+    description,
+    required,
+    ...rest
+  } = props;
   return (
     <div className={clsx(width, css, `form-control-radio`)}>
       {/*{label && (*/}
@@ -162,7 +174,13 @@ export const RadioField = (props: IFormProps) => {
       <div className="form-item">
         {options.map((option, index) => (
           <label key={index}>
-            <Field type="radio" name={name} value={option?.value} {...rest} />
+            <Field
+              type="radio"
+              name={name}
+              id={id}
+              value={option?.value}
+              {...rest}
+            />
             {option?.label || option?.value}
           </label>
         ))}
@@ -176,8 +194,17 @@ export const RadioField = (props: IFormProps) => {
 };
 
 export const CheckBoxField = (props: IFormProps) => {
-  const { name, css, width, label, options, description, required, ...rest } =
-    props;
+  const {
+    name,
+    id,
+    css,
+    width,
+    label,
+    options,
+    description,
+    required,
+    ...rest
+  } = props;
   return (
     <div className={clsx(width, css, `form-control-checkbox`)}>
       {/*{label && (*/}
@@ -190,7 +217,7 @@ export const CheckBoxField = (props: IFormProps) => {
       <div className="form-item">
         {options.map((option, index) => (
           <label key={index}>
-            <Field type="checkbox" name={name} value="true" {...rest} />
+            <Field type="checkbox" name={name} id={id} value="true" {...rest} />
             <span>{option?.value}</span>
           </label>
         ))}

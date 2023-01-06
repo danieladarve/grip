@@ -10,6 +10,7 @@ export default async function sendEmail(
 ) {
   try {
     const body = req.body;
+    const formId = body.settings.formId;
     async function fetchGoogleVerification(body) {
       const response = await fetch(
         `https://www.google.com/recaptcha/api/siteverify`,
@@ -34,8 +35,9 @@ export default async function sendEmail(
       );
       let values = "";
       for (const [key, value] of Object.entries(body)) {
-        if (key !== "settings" && key !== "token") {
-          values += `<li><strong>${key}:</strong> ${value}</li>`;
+        if (key !== `settings` && key !== `token`) {
+          const name = key.replaceAll(`${formId}--`, "");
+          values += `<li><strong>${name}:</strong> ${value}</li>`;
         }
       }
       let error = false;

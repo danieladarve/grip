@@ -40,6 +40,7 @@ export interface IFormData {
 export interface IFormProps {
   key: any;
   name: string;
+  id?: string;
   label: string;
   css?: string;
   width?: string;

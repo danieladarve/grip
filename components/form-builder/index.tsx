@@ -27,12 +27,9 @@ const fieldMap: IFieldMap = {
   checkbox: CheckBoxField,
 };
 
-const FormBuilder: React.FC<IAppProps & { thankYou?: any[] | string }> = ({
-  formData,
-  buttonProp,
-  onSubmit,
-  thankYou,
-}) => {
+const FormBuilder: React.FC<
+  IAppProps & { thankYou?: any[] | string; formId?: string }
+> = ({ formData, buttonProp, onSubmit, thankYou, formId }) => {
   const [showThankYou, setShowThankYou] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -141,6 +138,7 @@ const FormBuilder: React.FC<IAppProps & { thankYou?: any[] | string }> = ({
                 <FormField
                   key={index}
                   name={item?.id}
+                  id={`${formId}--${item?.id}`}
                   label={item?.label}
                   css={item?.css}
                   width={item?.width}

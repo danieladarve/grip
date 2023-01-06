@@ -17,7 +17,11 @@ const MobileForm = () => {
         <div className="form-container px-2 pt-10">
           <FormBuilder
             formData={formData}
-            onSubmit={(values) => handleSubmit(values, formSettings)}
+            thankYou={formSettings.thankYou}
+            formId="thank-you"
+            onSubmit={async (values) =>
+              handleSubmit(values, { ...formSettings, formId: "thank-you" })
+            }
           />
         </div>
         <div className="fixed bottom-0 left-5">
