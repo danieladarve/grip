@@ -240,6 +240,14 @@ button.cta {
 /* Scrollable Sections */
 .scrollable-section {
   @apply ease-linear duration-300 relative fullscreen w-full snap-center snap-always overflow-hidden z-10;
+
+  &.landing {
+    @apply lg:w-1/2;
+  }
+
+  > div {
+    @apply w-full;
+  }
   transition-property: height;
   /* Svg */
   .svg-container {

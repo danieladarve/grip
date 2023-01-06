@@ -107,11 +107,11 @@ const ScrollableSection = ({
         leaveTo="opacity-0"
       >
         <div className="relative h-full w-full px-6 md:pl-16 md:pr-14 lg:w-1/2 lg:pl-28 lg:pr-14">
-          <div className="relative z-30 pt-28 md:pt-[16%]">
+          <div className="relative z-30 w-full pt-28 md:pt-[16%]">
             <div className="mb-6 lg:mb-8">
               {title && <PortableText value={title} />}
             </div>
-            <div className="mb-3 w-full md:w-8/12 lg:w-11/12 2xl:w-7/12">
+            <div className="mb-3 w-full md:w-6/12 lg:w-11/12 2xl:w-7/12">
               <PortableText value={body} />
             </div>
             {cta && (
