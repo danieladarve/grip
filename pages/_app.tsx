@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { useGripStore } from "../store/grip-slice";
 import { useEffect } from "react";
+import useWindowResize from "@/lib/hooks/useWindowResize";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { menuOpen } = useGripStore();
@@ -19,17 +20,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [menuOpen]);
 
-  useEffect(() => {
-    const appHeight = () => {
-      const doc = document.documentElement;
-      doc.style.setProperty("--main-app-height", `${window.innerHeight}px`);
-    };
-
-    window.addEventListener("resize", appHeight);
-    appHeight();
-
-    return () => window.removeEventListener("resize", appHeight);
-  }, []);
+  useWindowResize();
 
   return (
     <GoogleReCaptchaProvider
