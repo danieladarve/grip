@@ -29,8 +29,8 @@ const StandardPage = ({
           href="/"
           className="float-left mt-2.5 flex items-center text-grip-azure underline"
         >
-          <span>Return Home</span>{" "}
-          <ArrowDown className="ml-2 rotate-90 fill-current" />
+          <span className="min-w-[100px]">Return Home</span>{" "}
+          <ArrowDown className="ml-2 h-2 rotate-90 fill-current" />
         </Link>
         <div className="float-right hidden lg:inline-block">
           <Button onClick={() => setMenuOpen()} variant="primary">
