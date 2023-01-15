@@ -52,7 +52,7 @@ const ButtonContent: React.FC<{
         <span>{children}</span>
         {icon && (
           <ArrowDown
-            className={`icon ml-2 fill-current  ${
+            className={`icon ml-2 w-3 fill-current  ${
               icon === "arrow-right" ? "-rotate-90" : ""
             }`}
           />

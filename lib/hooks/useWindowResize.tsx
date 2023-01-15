@@ -17,12 +17,18 @@ const useWindowResize = (): Size => {
       doc.style.setProperty("--main-app-height", `${window.innerHeight}px`);
     };
 
+    const resize = setTimeout(() => {
+      handleResize();
+    }, 700);
+
     window.addEventListener("resize", handleResize);
 
-    handleResize();
     window.dispatchEvent(new Event("resize"));
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resize);
+    };
   }, []);
 
   return windowSize;

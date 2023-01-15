@@ -105,6 +105,7 @@ module.exports = {
           "disabled-bg": "#E0E1E1",
           "disabled-border": "#B1C9FC",
           "disabled-secondary-text": "#83AAFF",
+          "social-hover": "#3F78E5",
         },
       },
     },

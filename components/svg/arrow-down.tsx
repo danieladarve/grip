@@ -5,8 +5,6 @@ const ArrowDown = ({ className }: SvgProps) => {
   return (
     <svg
       className={clsx(className)}
-      width="12"
-      height="6"
       viewBox="0 0 12 6"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -21,7 +21,7 @@ const DesktopNavigation = () => {
       )}
     >
       <ul className="flex h-full flex-col justify-between text-xs">
-        <li className="text-grip-midnight/40">
+        <li className="">
           <a
             className="cursor-pointer"
             href="#"
@@ -33,7 +33,7 @@ const DesktopNavigation = () => {
               });
             }}
           >
-            Back to top
+            <span>Back to top</span>
           </a>
         </li>
         {sections.map((section, i) => (
@@ -50,11 +50,14 @@ const DesktopNavigation = () => {
               onClick={(event) => handleIntoView(event, `.main-${section.id}`)}
             >
               <span>{section.section.menuTitle}</span>
-              {section.section._id === current && (
-                <span className="pt-5">
-                  <ArrowDown className="fill-current" />
-                </span>
-              )}
+              <span
+                className={clsx(
+                  "pt-3",
+                  section.section._id === current ? "opacity-100" : "opacity-0"
+                )}
+              >
+                <ArrowDown className="w-2 fill-current" />
+              </span>
             </a>
           </li>
         ))}

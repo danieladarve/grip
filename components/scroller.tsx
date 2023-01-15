@@ -63,6 +63,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
           className={clsx(
             "mobile-top-nav",
             inView ? "active" : "",
+            !inView ? "pointer-events-none" : "",
             currentIndex === 0 ? "init" : ""
           )}
         >

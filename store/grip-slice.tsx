@@ -29,6 +29,8 @@ export interface GripState {
   setSettings: (settings: Settings) => void;
   setMenuOpen: () => void;
   setMobileFormOpen: (open: boolean) => void;
+
+  openForm: () => void;
   updateSectionRef: (id: string, ref?: RefObject<HTMLDivElement>) => void;
   insertSection: (id: string, section: Section | null) => void;
 }
@@ -77,6 +79,13 @@ export const useGripStore = create(
       insertSection: (id, section) => {
         set(({ sections }) => {
           sections.push({ id, section: section, ref: null });
+        });
+      },
+
+      openForm: () => {
+        set((state) => {
+          state.menuOpen = true;
+          state.mobileFormOpen = true;
         });
       },
     }))

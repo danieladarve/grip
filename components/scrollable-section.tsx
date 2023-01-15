@@ -108,16 +108,16 @@ const ScrollableSection = ({
       >
         <div className="relative h-full w-full px-6 md:pl-16 md:pr-14 lg:w-1/2 lg:pl-28 lg:pr-14">
           <div className="relative z-30 w-full pt-28 md:pt-[16%]">
-            <div className="mb-6 lg:mb-8">
+            <div className="mb-4 md:mb-6 lg:mb-8">
               {title && <PortableText value={title} />}
             </div>
-            <div className="mb-3 w-full md:w-6/12 lg:w-11/12 2xl:w-7/12">
+            <div className="mb-3 w-full md:w-6/12 lg:w-11/12 2xl:w-9/12">
               <PortableText value={body} />
             </div>
             {cta && (
               <Button
                 variant="cta"
-                className="dark mb-10"
+                className="dark mb-8 md:mb-10"
                 icon="arrow-right"
                 onClick={() => setMenuOpen()}
               >
@@ -128,9 +128,11 @@ const ScrollableSection = ({
               <Image
                 src={image}
                 alt=""
-                className="w-full max-w-[450px] border border-black"
-                width={536}
-                height={357}
+                className="w-full max-w-[736px] border border-black"
+                unoptimized={true}
+                loading="eager"
+                width={1072}
+                height={714}
               />
             )}
           </div>

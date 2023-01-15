@@ -4,15 +4,15 @@ import FormBuilder from "@/components/form-builder";
 import React from "react";
 import { handleSubmit } from "@/components/side-contact";
 
-const MobileForm = () => {
-  const { mobileFormOpen, settings } = useGripStore();
+const MobileForm = ({ isOpen }: { isOpen: boolean }) => {
+  const { settings } = useGripStore();
   if (settings === undefined) {
     return null;
   }
   const { formSettings, formData } = settings || null;
 
   return (
-    <div className={clsx("mobile-form", { active: mobileFormOpen })}>
+    <div className={clsx("mobile-form", { active: isOpen })}>
       <div className="relative">
         <div className="form-container px-2 pt-10">
           <FormBuilder

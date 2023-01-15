@@ -32,10 +32,15 @@ const MobileNavigation = () => {
                 )}
               </a>
             </li>
-            <li className="w-1/2 text-grip-midnight/40 ">
+            <li
+              className={clsx(
+                "w-1/2 text-grip-midnight/40 ",
+                sections.length === currentIndex + 1 ? "is-last" : ""
+              )}
+            >
               <a
                 href="#"
-                className="flex w-full items-center"
+                className={"flex w-full items-center"}
                 aria-label={`Go to next section`}
                 onClick={(event) => {
                   if (!sections[currentIndex + 1]) {

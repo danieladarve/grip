@@ -61,14 +61,14 @@ const SideContact = ({
           { open: menuOpen }
         )}
       >
-        <div className="relative flex h-full w-full items-center pl-16 pr-12 xl:pl-28 xl:pr-14">
-          <div className="absolute left-0 top-0 right-0 z-50 flex items-center justify-between pt-10 md:pl-16 md:pr-12 xl:pl-28 xl:pr-14">
+        <div className="relative flex h-full w-full items-center pr-12 md:pl-14 lg:pl-16 xl:pl-20 xl:pr-14 2xl:pl-28">
+          <div className="absolute left-0 top-0 right-0 z-50 flex items-center justify-between pt-10 md:pl-14 md:pr-12 lg:pl-16 xl:pl-20 xl:pr-14 2xl:pl-28">
             <div className="flex gap-x-4">
               <Social
                 facebook={facebook}
                 instagram={instagram}
                 linkedin={linkedin}
-                className="fill-grip-azure"
+                className="fill-grip-azure transition-all hover:fill-grip-social-hover"
               />
             </div>
 
@@ -81,13 +81,13 @@ const SideContact = ({
               </Button>
               <a
                 href="#"
-                className="mt-4"
+                className=" h-[42px] w-5 pt-2"
                 onClick={(event) => {
                   event.preventDefault();
                   setMenuOpen();
                 }}
               >
-                <Close />
+                <Close className="fill-white" />
               </a>
             </div>
           </div>
@@ -96,7 +96,7 @@ const SideContact = ({
             <div className="flex flex-wrap">
               <div className="w-5/12">
                 <div className="content">
-                  <h3 className="mb-6">{title}</h3>
+                  <h3 className="mb-6 ">{title}</h3>
                   <div className="mb-3">
                     <PortableText value={body} />
                   </div>
@@ -142,7 +142,7 @@ const SideContact = ({
                 menuOpen ? "opacity-100 delay-700" : "opacity-0 delay-[50ms]"
               )}
             >
-              <ul className="flex gap-x-8 text-sm text-grip-azure xl:pl-1">
+              <ul className="mb-4 flex gap-x-8 text-sm text-grip-azure xl:pl-1">
                 {footer.map((item, idx) => (
                   <li key={idx}>
                     <Link

@@ -60,12 +60,29 @@ button.button-3d {
 /* Cta */
 button.cta {
   @apply cursor-pointer font-dm-sans underline text-sm lg:text-base underline-offset-2;
+  transition: all 250ms linear;
   &.dark {
     @apply text-grip-azure;
+
+    &:hover {
+      @apply text-grip-social-hover;
+    }
+
+    &:active {
+      @apply font-bold;
+    }
   }
 
   &.light {
     @apply text-white;
+
+    &:hover {
+      @apply opacity-90;
+    }
+
+    &:active {
+      @apply font-bold;
+    }
   }
 
 }
@@ -86,7 +103,7 @@ button.cta {
   .logo-container {
     @apply pl-[57%] pr-[8%] xl:pr-[7%] pb-[17%] duration-1000 ease-in-out transition-all;
     svg {
-      @apply w-full max-w-[310px];
+      @apply w-full max-w-[290px];
     }
   }
 
@@ -107,7 +124,7 @@ button.cta {
       padding-left: 52%;
     }
     .logo-container {
-      @apply md:pl-16 xl:pl-28 pr-[63%] pb-[5%];
+      @apply md:pl-14 lg:pl-16 xl:pl-20 2xl:pl-28 pr-[63%] pb-[5%];
 
     }
     .form-container {
@@ -221,7 +238,7 @@ button.cta {
 
 
     .form-error {
-      @apply px-8 -mt-6 mb-1 text-sm;
+      @apply px-7 -mt-5 mb-1 text-sm;
     }
   }
 
@@ -297,13 +314,50 @@ button.cta {
     ul {
       @apply border-r border-r-black;
       li {
+
         @apply pl-8 last:pb-4;
         -webkit-writing-mode: vertical-rl;
         -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
+        a {
+          @apply border-r-3 mr-[-2px] text-transparent border-r-current;
+          transition: color 250ms linear;
+          span {
+            @apply text-grip-midnight;
+            transition: color 250ms linear;
+          }
+        }
+
         &.active {
           a {
-            @apply border-r-3 mr-[-2px] border-r-grip-azure;
+            @apply text-grip-azure;
+            span {
+              @apply text-grip-azure;
+            }
+          }
+        }
+
+        &:hover {
+          a {
+            @apply text-grip-midnight;
+            span {
+              @apply text-grip-midnight;
+            }
+          }
+        }
+        &:first-of-type {
+          a {
+            span {
+              @apply text-grip-midnight/40;
+            }
+          }
+          &:hover {
+            a {
+              @apply text-grip-midnight;
+              span {
+                @apply text-grip-midnight/40;
+              }
+            }
           }
         }
       }
@@ -320,6 +374,7 @@ button.cta {
         span {
           @apply table-cell align-middle;
         }
+
       }
       &.active {
         @apply text-grip-azure;
@@ -332,7 +387,7 @@ button.cta {
 }
 
 .top-mobile-menu {
-  @apply z-50  px-5 absolute transition-all ease-linear duration-500 bg-grip-azure top-0 left-0 right-0 z-[60] lg:hidden;
+  @apply z-50 px-5 absolute transition-all ease-linear duration-700 bg-grip-azure top-0 left-0 right-0 z-[60] lg:hidden;
   &:not(.active) {
     @apply opacity-0 pointer-events-none;
   }
@@ -375,9 +430,12 @@ button.cta {
   }
 }
 
-
+.app-height {
+  height: var(--main-app-height);
+}
 
 .inner-footer {
+
   @apply fixed transition-all ease-in-out duration-700 translate-y-full left-0 right-0 z-[49] bg-grip-midnight overflow-hidden lg:hidden;
   bottom: 0;
   height: calc(var(--main-app-height) - 72px);
@@ -403,13 +461,51 @@ button.cta {
     }
 
     li {
-      &.active{
-        a {
-          @apply border-t-3 mt-[-0.125rem] border-t-grip-azure;
-        }
 
+      a {
+        @apply border-t-3 mt-[-0.125rem] border-t-current;
+        transition: color 250ms linear;
+
+        span {
+          @apply text-grip-midnight;
+          transition: color 250ms linear;
+        }
       }
 
+      &.active{
+        a {
+          @apply border-t-grip-azure;
+          span {
+            @apply text-grip-azure;
+          }
+        }
+      }
+
+      &:hover {
+        a {
+          @apply text-grip-midnight;
+          span {
+            @apply text-grip-midnight;
+          }
+        }
+      }
+
+      &.is-last {
+        a {
+          @apply text-transparent;
+          span {
+            @apply text-grip-midnight/40;
+          }
+        }
+        &:hover {
+          a {
+            @apply text-grip-midnight;
+            span {
+              @apply text-grip-midnight/40;
+            }
+          }
+        }
+      }
     }
   }
 }

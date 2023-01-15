@@ -9,7 +9,8 @@ import clsx from "clsx";
 import MobileForm from "@/components/mobile-form";
 
 const BottomMobileMenu = ({ settings }: { settings: Settings }) => {
-  const { menuOpen, setMobileFormOpen, setMenuOpen } = useGripStore();
+  const { menuOpen, setMobileFormOpen, setMenuOpen, mobileFormOpen } =
+    useGripStore();
 
   const { side, footer } = settings;
   const { body, cta, title } = side;
@@ -20,7 +21,7 @@ const BottomMobileMenu = ({ settings }: { settings: Settings }) => {
   };
   return (
     <div className={clsx("inner-footer relative", { open: menuOpen })}>
-      <MobileForm />
+      <MobileForm isOpen={mobileFormOpen} />
       <div className="relative h-full ">
         <div className="relative z-30 px-16 pt-[20%] text-white">
           <h3 className="mb-6">{title}</h3>
