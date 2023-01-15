@@ -26,7 +26,6 @@ const HomePage = ({ settings }: { settings: Settings }) => {
     menuOpen,
     setMobileFormOpen,
     setMenuOpen,
-    formAtOnce,
   } = useGripStore();
   const { sections, side, social, landing, formSettings, formData, footer } =
     settings;
