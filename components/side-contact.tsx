@@ -153,7 +153,9 @@ const SideContact = ({
                         setMenuOpen();
                       }}
                     >
-                      {item.title}
+                      <Button variant="cta" className="dark mb-10">
+                        {item.title}
+                      </Button>
                     </Link>
                   </li>
                 ))}

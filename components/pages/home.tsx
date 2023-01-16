@@ -95,7 +95,7 @@ const HomePage = ({ settings }: { settings: Settings }) => {
           </div>
           <MobileForm isOpen={openForm} />
           <div className="relative z-0 h-full">
-            <div className="relative z-30 px-16 pt-40 text-white">
+            <div className="relative z-30 px-16 pt-40 text-white md:w-7/12 lg:w-full">
               <h3 className="mb-6">{title}</h3>
               <div className="mb-3 text-sm">
                 <PortableText value={body} />
