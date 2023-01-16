@@ -97,7 +97,7 @@ const SideContact = ({
               <div className="w-5/12">
                 <div className="content">
                   <h3 className="mb-6 ">{title}</h3>
-                  <div className="mb-3">
+                  <div className="mb-3 xl:mb-6">
                     <PortableText value={body} />
                   </div>
                   {cta && (

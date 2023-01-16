@@ -59,7 +59,7 @@ button.button-3d {
 
 /* Cta */
 button.cta {
-  @apply cursor-pointer font-dm-sans underline text-sm lg:text-base underline-offset-2;
+  @apply cursor-pointer font-dm-sans underline text-sm lg:text-base 2xl:text-lg underline-offset-2;
   transition: all 250ms linear;
   &.dark {
     @apply text-grip-azure;
