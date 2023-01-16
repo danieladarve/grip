@@ -129,6 +129,8 @@ const ScrollableSection = ({
                 alt=""
                 className="w-full max-w-[1072px] border border-black"
                 width={1072}
+                loading="eager"
+                unoptimized={false}
                 height={714}
               />
             )}
