@@ -199,7 +199,7 @@ export const settingsQuery = groq`
     body,
     button,
     cta,
-    mainImage,
+    "mainImage": mainImage.asset->url,
     variant,
     menuTitle
   },

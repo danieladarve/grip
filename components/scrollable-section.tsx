@@ -82,7 +82,6 @@ const ScrollableSection = ({
       handleSetCurrentIndex(_id);
     }
   }, [inView, currentIndex, _id, handleSetCurrentIndex, setCurrentIndex]);
-  const image = urlForImage(mainImage).url();
 
   return (
     <section
@@ -126,11 +125,9 @@ const ScrollableSection = ({
             )}
             {mainImage && (
               <Image
-                src={image}
+                src={mainImage}
                 alt=""
-                className="w-full max-w-[736px] border border-black"
-                unoptimized={true}
-                loading="eager"
+                className="w-full max-w-[1072px] border border-black"
                 width={1072}
                 height={714}
               />
