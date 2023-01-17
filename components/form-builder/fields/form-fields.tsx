@@ -207,7 +207,7 @@ export const CheckBoxField = (props: IFormProps) => {
         {options.map((option, index) => (
           <label key={index}>
             <Field type="checkbox" name={name} id={id} value="true" {...rest} />
-            <span>{option?.value}</span>
+            <span className="leading-5">{option?.value}</span>
           </label>
         ))}
       </div>

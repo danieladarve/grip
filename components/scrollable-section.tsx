@@ -124,15 +124,17 @@ const ScrollableSection = ({
               </Button>
             )}
             {mainImage && (
-              <Image
-                src={mainImage}
-                alt=""
-                className="w-full max-w-[1072px] border border-black"
-                width={1072}
-                loading="lazy"
-                unoptimized={false}
-                height={714}
-              />
+              <div className="w-full md:max-w-[700px] lg:max-w-[1072px]">
+                <Image
+                  src={mainImage}
+                  alt=""
+                  className="w-full border border-black"
+                  width={1072}
+                  loading="lazy"
+                  unoptimized={false}
+                  height={714}
+                />
+              </div>
             )}
           </div>
           <div className="absolute bottom-0 right-0 left-0 z-10 lg:pl-28">

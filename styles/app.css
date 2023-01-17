@@ -192,7 +192,7 @@ button.cta {
     }
 
     input[type="text"], select {
-      @apply w-full bg-transparent rounded-full text-grip-azure placeholder-grip-azure border-grip-azure mb-5;
+      @apply w-full bg-transparent rounded-full text-grip-azure placeholder-grip-azure border-grip-azure mb-4 lg:mb-5;
     }
 
     input[type="text"]{
@@ -217,7 +217,7 @@ button.cta {
     }
 
     [type='checkbox'] {
-      @apply mt-2 lg:mt-0;
+      @apply mt-1 lg:mt-0;
       background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10.5' cy='10.5' r='10' fill='%23F4F5F5' stroke='%23C1C5C5'/%3E%3Cpath d='M7 10.7519L9.51347 13.5L15 7.5' stroke='%23C8CDCD' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-position: center;
 
@@ -238,12 +238,12 @@ button.cta {
 
 
     .form-error {
-      @apply px-7 -mt-5 mb-1 text-sm;
+      @apply px-7 -mt-5 lg:mb-1 text-sm;
     }
   }
 
   .submit-btn-container {
-    @apply pl-1 pr-2 pt-4 flex w-full justify-end lg:justify-start items-center;
+    @apply pl-1 pr-2 pt-2 lg:pt-4 flex w-full justify-end lg:justify-start items-center;
     button {
       @apply ml-1;
     }

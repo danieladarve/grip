@@ -14,7 +14,7 @@ const MobileForm = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div className={clsx("mobile-form", { active: isOpen })}>
       <div className="relative">
-        <div className="form-container px-2 pt-10">
+        <div className="form-container px-2 pt-6 lg:pt-10">
           <FormBuilder
             formData={formData}
             thankYou={formSettings.thankYou}

@@ -168,7 +168,7 @@ const FormBuilder: React.FC<
           )}
           <div
             onClick={() => resetState("")}
-            className="mt-5 w-full cursor-pointer px-4 text-grip-azure"
+            className="mt-2 w-full cursor-pointer px-4 text-grip-azure lg:mt-5"
           >
             {showThankYou && thankYou && <PortableText value={thankYou} />}
             {!showThankYou && errorMessage.length > 0 && (
