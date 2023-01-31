@@ -110,7 +110,7 @@ const ScrollableSection = ({
             <div className="mb-4 md:mb-6 lg:mb-8">
               {title && <PortableText value={title} />}
             </div>
-            <div className="mb-3 w-full md:w-6/12 lg:w-11/12 xl:mb-6 2xl:w-9/12">
+            <div className="mb-3 w-full leading-[1.4rem] md:w-6/12 md:leading-5 lg:w-11/12 xl:mb-6 2xl:w-9/12">
               <PortableText value={body} />
             </div>
             {cta && (
