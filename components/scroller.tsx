@@ -28,7 +28,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
 
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.96,
+    threshold: 0.55,
   });
 
   useEffect(() => {

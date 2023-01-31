@@ -387,7 +387,7 @@ button.cta {
 }
 
 .top-mobile-menu {
-  @apply z-50 px-5 absolute transition-all ease-linear duration-700 bg-grip-azure top-0 left-0 right-0 z-[60] lg:hidden;
+  @apply px-5 absolute transition-all ease-linear duration-700 bg-grip-azure top-0 left-0 right-0 z-[70] lg:hidden;
   &:not(.active) {
     @apply opacity-0 pointer-events-none;
   }

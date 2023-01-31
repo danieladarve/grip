@@ -106,7 +106,7 @@ const ScrollableSection = ({
         leaveTo="opacity-0"
       >
         <div className="relative h-full w-full px-6 md:pl-16 md:pr-14 lg:w-1/2 lg:pl-28 lg:pr-14">
-          <div className="relative z-30 w-full pt-28 md:pt-[16%]">
+          <div className="relative z-30 w-full pt-24 md:pt-[16%]">
             <div className="mb-4 md:mb-6 lg:mb-8">
               {title && <PortableText value={title} />}
             </div>
@@ -124,7 +124,7 @@ const ScrollableSection = ({
               </Button>
             )}
             {mainImage && (
-              <div className="w-full max-w-[480px] 2xl:max-w-[520px]">
+              <div className="w-10/12 xs:w-full md:max-w-[480px] 2xl:max-w-[520px]">
                 <Image
                   src={mainImage}
                   alt=""

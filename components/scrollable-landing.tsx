@@ -52,10 +52,10 @@ const ScrollableLanding = ({
     >
       <div className="fullscreen relative w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2 lg:pr-16 xl:pr-20 2xl:pr-28">
         <div className="relative z-50 h-full w-full">
-          <div className="flex justify-end pt-8 lg:hidden lg:pt-0">
+          <div className="flex justify-end pt-2 md:pt-8 lg:hidden lg:pt-0">
             <picture className="">
               <img
-                className="w-full max-w-[117px] -scale-x-100 "
+                className="w-full max-w-[100px] -scale-x-100 "
                 src={image}
                 alt={title ?? ""}
                 width="297"

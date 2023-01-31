@@ -13,10 +13,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     const sectionMain: HTMLDivElement = document.querySelector("section.main");
 
     const main: HTMLElement = document.querySelector("main");
+    const body: HTMLElement = document.querySelector("body");
 
     if (sectionMain && main) {
       sectionMain.classList.toggle("menu-open", menuOpen);
       main.classList.toggle("menu-open", menuOpen);
+      body.classList.toggle("menu-open", menuOpen);
     }
   }, [menuOpen]);
 
