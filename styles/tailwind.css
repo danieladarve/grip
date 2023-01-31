@@ -9,7 +9,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     @apply p-0 m-0 font-dm-sans leading-6;
-    height: -webkit-fill-available;
     height: 100vh;
     height: var(--main-app-height);
   }
@@ -44,7 +43,6 @@ body {
 }
 
 html {
-
   font-size: 16px;
 }
 
