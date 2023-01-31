@@ -517,5 +517,5 @@ button.cta {
 }
 
 .menu-open {
-  overflow-y: hidden !important;
+  overflow: hidden !important;
 }

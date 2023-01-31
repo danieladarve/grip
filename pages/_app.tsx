@@ -14,11 +14,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
     const main: HTMLElement = document.querySelector("main");
     const body: HTMLElement = document.querySelector("body");
+    const html: HTMLElement = document.querySelector("html");
 
     if (sectionMain && main) {
       sectionMain.classList.toggle("menu-open", menuOpen);
       main.classList.toggle("menu-open", menuOpen);
       body.classList.toggle("menu-open", menuOpen);
+      html.classList.toggle("menu-open", menuOpen);
     }
   }, [menuOpen]);
 

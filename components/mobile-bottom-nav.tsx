@@ -34,14 +34,14 @@ const MobileBottomNav = ({ social }: { social?: SocialLinks }) => {
         ) : (
           <a
             href="#"
-            className=""
+            className="w-10 pb-2.5"
             aria-label="Close Menu"
             onClick={(event) => {
               event.preventDefault();
               handleMobileMenu();
             }}
           >
-            <Close className="" />
+            <Close className="ml-auto" />
           </a>
         )}
       </div>
