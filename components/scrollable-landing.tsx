@@ -64,9 +64,9 @@ const ScrollableLanding = ({
             </picture>
           </div>
 
-          <div>
+          <div className="max-w-[480px] lg:mt-32">
             {title && <h1 className="mb-5">{title}</h1>}
-            {subtitle && <h2 className="mb-6">{subtitle}</h2>}
+            {/*{subtitle && <h2 className="mb-6">{subtitle}</h2>}*/}
           </div>
           {button && (
             <div className="mb-6 hidden lg:block">

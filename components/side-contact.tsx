@@ -74,10 +74,10 @@ const SideContact = ({
 
             <div className="actions">
               <Button
-                onClick={() => window.open(tryGripBeta + `?subject=`)}
+                onClick={() => window.open(tryGripBeta)}
                 variant="primary"
               >
-                Try Grip Beta
+                Login
               </Button>
               <a
                 href="#"
@@ -104,7 +104,9 @@ const SideContact = ({
                     <Button
                       onClick={() => setMenuOpen()}
                       variant="cta"
-                      className="dark mb-10"
+                      className={clsx("dark mb-10", {
+                        "pointer-events-none invisible": menuOpen,
+                      })}
                       icon="arrow-right"
                     >
                       {cta}
@@ -129,7 +131,12 @@ const SideContact = ({
               </div>
             </div>
           </div>
-          <div className="absolute right-0 bottom-0 w-full">
+          <div
+            className={clsx(
+              "absolute right-0 bottom-0 transition-[width] duration-1000 ease-in-out",
+              menuOpen ? "w-full" : "w-11/12"
+            )}
+          >
             <Shapes className="shapes absolute right-0 bottom-0 z-10 block " />
             <div className="logo-container absolute bottom-0 z-20 block w-full ">
               <Logo className="block w-full " />

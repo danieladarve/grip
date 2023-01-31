@@ -16,6 +16,8 @@ import { useInView } from "react-intersection-observer";
 import MobileForm from "@/components/mobile-form";
 import Social from "@/components/social";
 import Close from "@/components/svg/close";
+import Shapes from "@/components/svg/shapes";
+import Logo from "@/components/svg/logo";
 
 const HomePage = ({ settings }: { settings: Settings }) => {
   const [openForm, setOpenForm] = useState(false);
@@ -95,7 +97,7 @@ const HomePage = ({ settings }: { settings: Settings }) => {
           </div>
           <MobileForm isOpen={openForm} />
           <div className="relative z-0 h-full">
-            <div className="relative z-30 px-16 pt-40 text-white md:w-7/12 lg:w-full">
+            <div className="relative z-30 px-8 pt-32 text-white md:w-7/12 md:px-12 md:px-16 md:pt-40 lg:w-full">
               <h3 className="mb-6">{title}</h3>
               <div className="mb-3 text-sm">
                 <PortableText value={body} />
@@ -127,8 +129,15 @@ const HomePage = ({ settings }: { settings: Settings }) => {
                 ))}
               </ul>
             </div>
-            <div className="absolute bottom-[72px] left-0 right-0 w-full bg-grip-midnight">
-              <MobileShapes className="h-full w-full" />
+            <div className="absolute bottom-[72px] right-0 w-full bg-grip-midnight">
+              <MobileShapes className="hidden h-full w-full md:block" />
+              <Shapes className="block w-full md:hidden " />
+              <div className={clsx("block w-full md:hidden")}>
+                <Shapes className="shapes absolute right-0 bottom-0 z-10 block " />
+                <div className="absolute bottom-0 z-20 block w-full pl-[57%] pr-[8%] pb-[17%] xl:pr-[7%] ">
+                  <Logo className="block w-full " />
+                </div>
+              </div>
             </div>
           </div>
         </section>

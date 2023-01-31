@@ -18,18 +18,22 @@
   }
 
   h1, .h1 {
-    @apply font-dm-sans font-normal leading-[125%] text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-[300%];
+    @apply font-dm-sans font-normal leading-[125%] text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-[210%];
   }
 
   h2, .h2 {
-    @apply font-dm-sans font-normal leading-[125%] text-xl md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-[210%];
+    @apply font-dm-sans font-normal leading-[125%] text-xl md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-[170%];
   }
 
   h3, .h3 {
-    @apply font-domaine-text font-normal leading-[125%] text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-[180%];
+    @apply font-domaine-text font-normal leading-[125%] text-lg md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-[150%];
   }
 
 
+}
+
+#__next {
+  @apply w-full h-full;
 }
 
 html {

@@ -124,7 +124,7 @@ const ScrollableSection = ({
               </Button>
             )}
             {mainImage && (
-              <div className="w-full md:max-w-[700px] lg:max-w-[1072px]">
+              <div className="w-full max-w-[480px] 2xl:max-w-[520px]">
                 <Image
                   src={mainImage}
                   alt=""
