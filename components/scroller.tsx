@@ -29,7 +29,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
     sections: storeSections,
     currentIndex,
   } = useGripStore();
-  const [preventScroll, setPreventScroll] = useState(false);
+  // const [preventScroll, setPreventScroll] = useState(false);
 
   const handleSwipe = () => {
     if (currentIndex + 1 >= storeSections.length) {
@@ -44,7 +44,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
     ...{
       swipeDuration: 500,
       trackMouse: true,
-      preventScrollOnSwipe: preventScroll,
+      preventScrollOnSwipe: false,
     },
   });
 
@@ -63,15 +63,15 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
     }
   }, [sections, insertSection, storeSections.length]);
 
-  useEffect(() => {
-    if (!preventScroll && currentIndex > 0) {
-      setPreventScroll(true);
-    }
-
-    if (preventScroll && currentIndex === 0) {
-      setPreventScroll(false);
-    }
-  }, [currentIndex, preventScroll]);
+  // useEffect(() => {
+  //   if (!preventScroll && currentIndex > 0) {
+  //     setPreventScroll(true);
+  //   }
+  //
+  //   if (preventScroll && currentIndex === 0) {
+  //     setPreventScroll(false);
+  //   }
+  // }, [currentIndex, preventScroll]);
 
   return (
     <>
