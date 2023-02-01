@@ -7,8 +7,15 @@ import { useGripStore } from "../store/grip-slice";
 import type { Settings } from "@/lib/sanity/groq";
 import clsx from "clsx";
 import MobileForm from "@/components/mobile-form";
+import type { SocialLinks } from "@/lib/sanity/groq";
 
-const BottomMobileMenu = ({ settings }: { settings: Settings }) => {
+const BottomMobileMenu = ({
+  settings,
+  social,
+}: {
+  social?: SocialLinks;
+  settings: Settings;
+}) => {
   const { menuOpen, setMobileFormOpen, setMenuOpen, mobileFormOpen } =
     useGripStore();
 
@@ -21,8 +28,8 @@ const BottomMobileMenu = ({ settings }: { settings: Settings }) => {
   };
   return (
     <div className={clsx("inner-footer relative", { open: menuOpen })}>
-      <MobileForm isOpen={mobileFormOpen} />
-      <div className="relative h-full ">
+      <MobileForm hasMenu={false} social={social} isOpen={mobileFormOpen} />
+      <div className="relative h-full">
         <div className="relative z-30 px-8 pt-12 pt-[20%] text-white md:px-16">
           <h3 className="mb-6">{title}</h3>
           <div className="mb-3 text-sm">

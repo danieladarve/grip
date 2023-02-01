@@ -3,17 +3,37 @@ import { useGripStore } from "../store/grip-slice";
 import FormBuilder from "@/components/form-builder";
 import React from "react";
 import { handleSubmit } from "@/components/side-contact";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
+import type { SocialLinks } from "@/lib/sanity/groq";
 
-const MobileForm = ({ isOpen }: { isOpen: boolean }) => {
-  const { settings } = useGripStore();
+const MobileForm = ({
+  isOpen,
+  social,
+  hasMenu = false,
+}: {
+  social?: SocialLinks;
+  isOpen: boolean;
+  hasMenu?: boolean;
+}) => {
+  const { settings, setMobileFormOpen } = useGripStore();
   if (settings === undefined) {
     return null;
   }
   const { formSettings, formData } = settings || null;
-
+  const handleBottomFrom = () => {
+    setMobileFormOpen(false);
+  };
   return (
-    <div className={clsx("mobile-form", { active: isOpen })}>
+    <div
+      className={clsx("mobile-form", {
+        active: isOpen,
+        "with-menu app-height": hasMenu,
+      })}
+    >
       <div className="relative">
+        {hasMenu && (
+          <MobileBottomNav social={social} callback={handleBottomFrom} />
+        )}
         <div className="form-container px-2 pt-6 lg:pt-10">
           <FormBuilder
             formData={formData}

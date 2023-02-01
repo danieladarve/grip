@@ -427,6 +427,15 @@ button.cta {
   bottom: calc((var(--main-app-height) + 72px) * -1);
   &.active {
     bottom: calc(var(--main-app-height) - 72px);
+    &.with-menu {
+      bottom: var(--main-app-height);
+    }
+  }
+
+  nav {
+    svg {
+      @apply fill-white;
+    }
   }
 }
 
@@ -518,4 +527,11 @@ button.cta {
 
 .menu-open {
   overflow: hidden !important;
+}
+
+.whats-grip {
+  @apply text-white hidden lg:block mt-2 -ml-8 mr-8 relative;
+  span {
+    writing-mode: vertical-rl;
+  }
 }

@@ -3,10 +3,14 @@ import type { GripStateSection } from "../store/grip-slice";
 import { useGripStore } from "../store/grip-slice";
 import ScrollableSection from "@/components/scrollable-section";
 import ScrollableLanding from "@/components/scrollable-landing";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
-import MobileNavigation from "@/components/mobile-navigation";
+import MobileNavigation, {
+  getElementOffset,
+  handleScroll,
+} from "@/components/mobile-navigation";
+import { useSwipeable } from "react-swipeable";
 
 export interface ScrollerProps {
   landing?: Section;
@@ -25,10 +29,28 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
     sections: storeSections,
     currentIndex,
   } = useGripStore();
+  const [preventScroll, setPreventScroll] = useState(false);
+
+  const handleSwipe = () => {
+    if (currentIndex + 1 >= storeSections.length) {
+      return;
+    }
+    const offset = getElementOffset(storeSections, currentIndex);
+    handleScroll(offset);
+  };
+
+  const swiperHandlers = useSwipeable({
+    onSwipedUp: () => handleSwipe(),
+    ...{
+      swipeDuration: 500,
+      trackMouse: true,
+      preventScrollOnSwipe: preventScroll,
+    },
+  });
 
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.55,
+    threshold: 0.85,
   });
 
   useEffect(() => {
@@ -40,6 +62,16 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
       });
     }
   }, [sections, insertSection, storeSections.length]);
+
+  useEffect(() => {
+    if (!preventScroll && currentIndex > 0) {
+      setPreventScroll(true);
+    }
+
+    if (preventScroll && currentIndex === 0) {
+      setPreventScroll(false);
+    }
+  }, [currentIndex, preventScroll]);
 
   return (
     <>
@@ -56,39 +88,45 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
       />
 
       <div
-        ref={ref}
-        className="mobile-snap fullscreen relative z-40 flex w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:hidden"
+        {...swiperHandlers}
+        className="fullscreen relative z-40  w-full lg:hidden"
       >
         <div
-          className={clsx(
-            "mobile-top-nav",
-            inView ? "active" : "",
-            !inView ? "pointer-events-none" : "",
-            currentIndex === 0 ? "init" : ""
-          )}
+          ref={ref}
+          className="mobile-snap fullscreen flex w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide "
         >
-          <MobileNavigation />
-        </div>
-        {storeSections.map((sectionState: GripStateSection, i, row) => {
-          const lastSection: boolean = isLast(i, row);
-          const {
-            section: { _id, title, cta, body, mainImage, variant },
-          } = sectionState;
+          <div
+            className={clsx(
+              "mobile-top-nav",
+              inView ? "active" : "",
+              !inView ? "pointer-events-none" : "",
+              currentIndex === 0 ? "init" : ""
+            )}
+          >
+            <MobileNavigation />
+          </div>
+          {storeSections.map((sectionState: GripStateSection, i, row) => {
+            const lastSection: boolean = isLast(i, row);
+            const {
+              section: { _id, title, cta, body, mainImage, variant },
+            } = sectionState;
 
-          return (
-            <ScrollableSection
-              _id={_id}
-              title={title}
-              cta={cta}
-              body={body}
-              mainImage={mainImage}
-              variant={variant}
-              isLast={lastSection}
-              key={_id}
-              className={`flex shrink-0 section-${_id}`}
-            />
-          );
-        })}
+            return (
+              <ScrollableSection
+                _id={_id}
+                title={title}
+                cta={cta}
+                body={body}
+                mainImage={mainImage}
+                variant={variant}
+                isLast={lastSection}
+                key={_id}
+                className={`flex shrink-0 section-${_id}`}
+                isMobile={true}
+              />
+            );
+          })}
+        </div>
       </div>
       {storeSections.map((sectionState: GripStateSection, i, row) => {
         const lastSection: boolean = isLast(i, row);

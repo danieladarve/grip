@@ -1,16 +1,27 @@
+import type { GripStateSection } from "../store/grip-slice";
 import { useGripStore } from "../store/grip-slice";
 import ArrowDown from "@/components/svg/arrow-down";
 import clsx from "clsx";
 
+export const handleScroll = (position?: number) => {
+  document.querySelector(".mobile-snap").scrollTo({
+    left: position ?? 0,
+    behavior: "smooth",
+  });
+};
+
+export const getElementOffset = (
+  sections: GripStateSection[],
+  currentIndex: number
+) => {
+  const element: HTMLDivElement = document.querySelector(
+    `.mobile-snap .section-${sections[currentIndex + 1].id}`
+  );
+
+  return element.offsetLeft;
+};
 const MobileNavigation = () => {
   const { sections, currentIndex } = useGripStore();
-
-  const handleScroll = (position?: number) => {
-    document.querySelector(".mobile-snap").scrollTo({
-      left: position ?? 0,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <>
@@ -47,10 +58,8 @@ const MobileNavigation = () => {
                     event.preventDefault();
                     handleScroll();
                   } else {
-                    const element: HTMLDivElement = document.querySelector(
-                      `.mobile-snap .section-${sections[currentIndex + 1].id}`
-                    );
-                    handleScroll(element.offsetLeft);
+                    const offset = getElementOffset(sections, currentIndex);
+                    handleScroll(offset);
                   }
                 }}
               >
@@ -59,7 +68,8 @@ const MobileNavigation = () => {
                     "pl-5",
                     sections[currentIndex + 1]
                       ? "text-grip-midnight"
-                      : "text-grip-midnight/40"
+                      : "text-grip-midnight/40",
+                    sections.length === currentIndex + 1 ? "animate-bounce" : ""
                   )}
                 >
                   {sections[currentIndex + 1]?.section?.menuTitle ??

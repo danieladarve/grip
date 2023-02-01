@@ -81,7 +81,6 @@ export const useGripStore = create(
           sections.push({ id, section: section, ref: null });
         });
       },
-
       openForm: () => {
         set((state) => {
           state.menuOpen = true;

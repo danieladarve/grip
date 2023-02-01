@@ -65,80 +65,8 @@ const HomePage = ({ settings }: { settings: Settings }) => {
         footer={footer}
       />
       <DesktopNavigation />
-
       <section className="main relative h-full w-full snap-y overflow-y-auto overscroll-y-contain scrollbar-hide lg:snap-mandatory">
         <Scroller social={social} sections={sections} landing={landing} />
-        <section
-          ref={ref}
-          className="app-height relative overflow-hidden bg-grip-midnight lg:hidden"
-        >
-          <div className="absolute top-0 z-10 flex h-[72px] w-full items-center bg-grip-azure px-5">
-            <div className="flex gap-x-4">
-              <Social
-                facebook={facebook}
-                instagram={instagram}
-                linkedin={linkedin}
-                className="fill-grip-midnight transition-all hover:fill-grip-social-hover"
-              />
-            </div>
-            <a
-              href="#"
-              className={clsx(" ml-auto h-5 w-5 transition-opacity", {
-                "pointer-events-none opacity-0": !openForm,
-                "opacity-100": openForm,
-              })}
-              onClick={(event) => {
-                event.preventDefault();
-                setOpenForm(false);
-              }}
-            >
-              <Close className="fill-grip-midnight" />
-            </a>
-          </div>
-          <MobileForm isOpen={openForm} />
-          <div className="relative z-0 h-full">
-            <div className="relative z-30 px-8 pt-32 text-white sm:w-7/12 md:px-12 md:px-16 md:pt-40 lg:w-full">
-              <h3 className="mb-6">{title}</h3>
-              <div className="mb-3 text-sm">
-                <PortableText value={body} />
-              </div>
-              {cta && (
-                <Button
-                  onClick={() => setOpenForm(true)}
-                  variant="cta"
-                  className="dark mb-10"
-                  icon="arrow-right"
-                >
-                  {cta}
-                </Button>
-              )}
-            </div>
-
-            <div className="absolute left-0 right-0 bottom-0 z-20 w-full bg-grip-azure py-6 px-5 text-white">
-              <ul className="flex w-full justify-center gap-x-10 text-sm text-grip-midnight underline-offset-2">
-                {footer.map((item, idx) => (
-                  <li key={idx}>
-                    <Link
-                      className="cursor-pointer underline"
-                      href={`/pages/${item.slug}`}
-                      onClick={handleFooterLink}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="absolute bottom-[72px] right-0 w-full bg-grip-midnight">
-              <div className={clsx("block w-full")}>
-                <Shapes className="shapes  z-10 block w-full " />
-                <div className="absolute bottom-0 z-20 block w-full pl-[57%] pr-[8%] pb-[17%] xl:pr-[7%] ">
-                  <Logo className="block w-full " />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </section>
       <div
         className={clsx(
@@ -162,7 +90,7 @@ const HomePage = ({ settings }: { settings: Settings }) => {
       >
         <MobileBottomNav social={social} />
       </div>
-      <BottomMobileMenu settings={settings} />
+      <BottomMobileMenu social={social} settings={settings} />
     </>
   );
 };

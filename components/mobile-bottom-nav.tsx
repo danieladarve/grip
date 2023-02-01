@@ -4,16 +4,26 @@ import { useGripStore } from "../store/grip-slice";
 import type { SocialLinks } from "@/lib/sanity/groq";
 import Close from "@/components/svg/close";
 
-const MobileBottomNav = ({ social }: { social?: SocialLinks }) => {
+const MobileBottomNav = ({
+  social,
+  callback,
+}: {
+  social?: SocialLinks;
+  callback?: () => void;
+}) => {
   const { setMenuOpen, setMobileFormOpen, mobileFormOpen } = useGripStore();
   const handleMobileMenu = () => {
+    if (callback !== undefined) {
+      callback();
+      return;
+    }
     if (mobileFormOpen) {
       setMobileFormOpen(false);
     }
     setMenuOpen();
   };
   return (
-    <nav className="flex min-h-[72px] items-center justify-between py-6 lg:hidden">
+    <nav className="mobile-bottom-nav flex min-h-[72px] items-center justify-between py-6 lg:hidden">
       <div className="flex gap-x-4">
         <Social
           facebook={social.facebook}

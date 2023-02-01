@@ -16,6 +16,7 @@ import { Transition } from "@headlessui/react";
 interface ScrollableSectionProps extends Post {
   isLast: boolean;
   className?: string;
+  isMobile?: boolean;
 }
 
 const Svg = ({
@@ -48,6 +49,7 @@ const ScrollableSection = ({
   isLast,
   variant,
   className,
+  isMobile = false,
 }: ScrollableSectionProps) => {
   const [appear, setAppear] = useState(true);
   const {
@@ -90,7 +92,7 @@ const ScrollableSection = ({
     >
       <Transition
         appear={true}
-        show={inView}
+        show={isMobile ? true : inView}
         unmount={appear}
         afterLeave={() => {
           setAppear(false);

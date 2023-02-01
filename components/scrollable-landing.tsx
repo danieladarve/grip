@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { useGripStore } from "../store/grip-slice";
 import { handleIntoView } from "@/components/desktop-navigation";
 import type { SocialLinks } from "@/lib/sanity/groq";
+import LongArrow from "@/components/svg/long-arrow";
 
 interface ScrollableLanding extends Landing {
   isLast: boolean;
@@ -64,39 +65,9 @@ const ScrollableLanding = ({
             </picture>
           </div>
 
-          <div className="max-w-[480px] lg:mt-32">
-            {title && <h1 className="mb-5">{title}</h1>}
-            {/*{subtitle && <h2 className="mb-6">{subtitle}</h2>}*/}
-          </div>
-          {button && (
-            <div className="mb-6 hidden lg:block">
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  setMenuOpen();
-                }}
-              >
-                {button}
-              </Button>
-            </div>
-          )}
-          {button && (
-            <div className="mb-6 lg:hidden">
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  openForm();
-                }}
-              >
-                {button}
-              </Button>
-            </div>
-          )}
-          {cta && sections && (
-            <Button
-              variant="cta"
-              className="light"
-              icon="arrow-down"
+          <div className="flex max-w-[480px] lg:mt-32">
+            <a
+              className="whats-grip"
               onClick={(event) =>
                 handleIntoView(
                   event,
@@ -106,9 +77,57 @@ const ScrollableLanding = ({
                 )
               }
             >
-              {cta}
-            </Button>
-          )}
+              <span className="relative z-10 mb-10 bg-grip-azure">{`What's Grip - scroll please`}</span>
+              <div className="animate-bounce">
+                <LongArrow className={"ml-0.5"} />
+              </div>
+            </a>
+            <div>
+              {title && <h1 className="mb-10">{title}</h1>}
+              {/*{subtitle && <h2 className="mb-6">{subtitle}</h2>}*/}
+              {button && (
+                <div className="mb-6 hidden lg:block">
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      setMenuOpen();
+                    }}
+                  >
+                    {button}
+                  </Button>
+                </div>
+              )}
+              {button && (
+                <div className="mb-6 lg:hidden">
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      openForm();
+                    }}
+                  >
+                    {button}
+                  </Button>
+                </div>
+              )}
+              {cta && sections && (
+                <Button
+                  variant="cta"
+                  className="light"
+                  icon="arrow-down"
+                  onClick={(event) =>
+                    handleIntoView(
+                      event,
+                      window.outerWidth >= 1024
+                        ? `.main-${sections[0].id}`
+                        : ".mobile-snap"
+                    )
+                  }
+                >
+                  {cta}
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="absolute bottom-0 z-0 hidden lg:block">
