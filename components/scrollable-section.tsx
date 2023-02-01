@@ -88,7 +88,9 @@ const ScrollableSection = ({
   return (
     <section
       ref={ref}
-      className={clsx("scrollable-section", className, `bg-grip-${variant}`)}
+      className={clsx("scrollable-section", className, `bg-grip-${variant}`, {
+        "is-mobile": isMobile,
+      })}
     >
       <Transition
         appear={true}

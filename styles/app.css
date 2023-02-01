@@ -258,6 +258,11 @@ button.cta {
 .scrollable-section {
   @apply ease-linear duration-300 relative fullscreen w-full snap-center snap-always overflow-hidden z-10;
 
+  &.is-mobile {
+    height: calc(100vh - 72px);
+    height: calc(var(--main-app-height) - 72px);
+  }
+
   &.landing {
     @apply lg:w-1/2;
   }
