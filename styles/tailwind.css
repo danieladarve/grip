@@ -8,9 +8,11 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @apply p-0 m-0 font-dm-sans bg-grip-azure leading-6;
+    @apply p-0 m-0 font-dm-sans bg-grip-azure inset-0 leading-6 overscroll-y-none;
     height: 100vh;
     height: var(--main-app-height);
+    position: fixed;
+    overflow: hidden;
   }
 
   p {
@@ -33,7 +35,10 @@
 }
 
 #__next {
-  @apply w-full h-full;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {

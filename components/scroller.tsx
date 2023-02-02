@@ -50,7 +50,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
 
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.85,
+    threshold: 0.9,
   });
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
 
       <div
         {...swiperHandlers}
-        className="fullscreen relative z-40  w-full lg:hidden"
+        className="mobile-snap-container fullscreen relative z-40  w-full lg:hidden"
       >
         <div
           ref={ref}
