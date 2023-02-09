@@ -456,6 +456,12 @@ button.cta {
   &.open {
     bottom: calc(var(--main-app-height) - 72px);
   }
+
+  &.force-open {
+    @apply relative translate-y-0;
+    height: var(--main-app-height);
+    bottom: var(--main-app-height);
+  }
 }
 
 

@@ -16,7 +16,7 @@
   }
 
   p {
-    @apply text-sm md:text-lg lg:text-base xl:text-lg 2xl:text-xl;
+    @apply text-sm md:text-lg lg:text-base xl:text-lg 2xl:text-[125%];
   }
 
   h1, .h1 {
