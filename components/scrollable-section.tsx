@@ -71,7 +71,7 @@ const ScrollableSection = ({
 
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.7,
+    threshold: 0.95,
     onChange: (inView) => {
       if (inView) {
         handleSetCurrentIndex(_id);
@@ -102,10 +102,10 @@ const ScrollableSection = ({
         afterEnter={() => {
           setAppear(false);
         }}
-        enter="transition-opacity ease-in duration-1000"
+        enter="transition-opacity ease-in duration-500"
         enterFrom="opacity-0"
         enterTo="opacity-100"
-        leave="transition-opacity ease-out duration-100"
+        leave="transition-opacity ease-out duration-300"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >

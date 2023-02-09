@@ -33,7 +33,7 @@ const Page = ({ page, settings }: { page: PageType; settings: Settings }) => {
           title={`${settings?.seo?.title} - Page Not Found 404`}
           description={settings?.seo?.description}
         />
-        <main className="pages relative h-full min-h-screen w-full overscroll-none bg-grip-coral px-6 pt-28 pb-32 scrollbar-hide md:pr-14 md:pl-16 lg:pb-12 lg:pt-40">
+        <main className="pages overscroll-scroll relative h-full h-screen w-full bg-grip-coral px-6 pt-28 pb-32 scrollbar-hide md:pr-14 md:pl-16 lg:pb-12 lg:pt-40">
           <h1 className="mb-5">Page not found</h1>
           <Link className="underline" href="/">
             Go back Home

@@ -29,29 +29,24 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
     sections: storeSections,
     currentIndex,
   } = useGripStore();
-  // const [preventScroll, setPreventScroll] = useState(false);
 
-  const handleSwipe = () => {
-    if (currentIndex + 1 >= storeSections.length) {
-      return;
-    }
-    const offset = getElementOffset(storeSections, currentIndex);
-    handleScroll(offset);
-  };
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
-  const swiperHandlers = useSwipeable({
-    onSwipedUp: () => handleSwipe(),
-    ...{
-      swipeDuration: 500,
-      trackMouse: true,
-      preventScrollOnSwipe: false,
-    },
-  });
-
-  const { ref, inView } = useInView({
-    /* Optional options */
-    threshold: 0.9,
-  });
+  useEffect(() => {
+    const el: HTMLElement = document.querySelector("section.main");
+    const landingEl: HTMLElement = document.querySelector(
+      "section.scrollable-section.landing"
+    );
+    const scroller = () => {
+      const scrollPosition = el.scrollTop; // => scroll position
+      setShowMobileNav(scrollPosition >= landingEl.clientHeight);
+    };
+    scroller();
+    el.addEventListener("scroll", scroller);
+    return () => {
+      el.removeEventListener("scroll", scroller);
+    };
+  }, []);
 
   useEffect(() => {
     if (!storeSections.length) {
@@ -62,16 +57,6 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
       });
     }
   }, [sections, insertSection, storeSections.length]);
-
-  // useEffect(() => {
-  //   if (!preventScroll && currentIndex > 0) {
-  //     setPreventScroll(true);
-  //   }
-  //
-  //   if (preventScroll && currentIndex === 0) {
-  //     setPreventScroll(false);
-  //   }
-  // }, [currentIndex, preventScroll]);
 
   return (
     <>
@@ -86,68 +71,37 @@ const Scroller = ({ sections, landing, social }: ScrollerProps) => {
         button={landing.button}
         social={social}
       />
-
-      <div
-        {...swiperHandlers}
-        className="mobile-snap-container fullscreen relative z-40  w-full lg:hidden"
-      >
+      <section className="inner-scroller relative h-full snap-y snap-mandatory scrollbar-hide">
         <div
-          ref={ref}
-          className="mobile-snap fullscreen flex w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide "
+          className={clsx(
+            "mobile-top-nav",
+            showMobileNav ? "active" : "",
+            currentIndex === 0 ? "init" : ""
+          )}
         >
-          <div
-            className={clsx(
-              "mobile-top-nav",
-              inView ? "active" : "",
-              !inView ? "pointer-events-none" : "",
-              currentIndex === 0 ? "init" : ""
-            )}
-          >
-            <MobileNavigation />
-          </div>
-          {storeSections.map((sectionState: GripStateSection, i, row) => {
-            const lastSection: boolean = isLast(i, row);
-            const {
-              section: { _id, title, cta, body, mainImage, variant },
-            } = sectionState;
-
-            return (
-              <ScrollableSection
-                _id={_id}
-                title={title}
-                cta={cta}
-                body={body}
-                mainImage={mainImage}
-                variant={variant}
-                isLast={lastSection}
-                key={_id}
-                className={`flex shrink-0 section-${_id}`}
-                isMobile={true}
-              />
-            );
-          })}
+          <MobileNavigation />
         </div>
-      </div>
-      {storeSections.map((sectionState: GripStateSection, i, row) => {
-        const lastSection: boolean = isLast(i, row);
-        const {
-          section: { _id, title, cta, body, mainImage, variant },
-        } = sectionState;
+        {storeSections.map((sectionState: GripStateSection, i, row) => {
+          const lastSection: boolean = isLast(i, row);
+          const {
+            section: { _id, title, cta, body, mainImage, variant },
+          } = sectionState;
 
-        return (
-          <ScrollableSection
-            _id={_id}
-            title={title}
-            cta={cta}
-            body={body}
-            mainImage={mainImage}
-            variant={variant}
-            isLast={lastSection}
-            key={_id}
-            className={`hidden lg:flex main-${_id}`}
-          />
-        );
-      })}
+          return (
+            <ScrollableSection
+              _id={_id}
+              title={title}
+              cta={cta}
+              body={body}
+              mainImage={mainImage}
+              variant={variant}
+              isLast={lastSection}
+              key={_id}
+              className={`flex main-${_id}`}
+            />
+          );
+        })}
+      </section>
     </>
   );
 };

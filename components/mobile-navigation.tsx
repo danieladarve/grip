@@ -2,10 +2,10 @@ import type { GripStateSection } from "../store/grip-slice";
 import { useGripStore } from "../store/grip-slice";
 import ArrowDown from "@/components/svg/arrow-down";
 import clsx from "clsx";
+import { handleIntoView } from "@/components/desktop-navigation";
 
 export const handleScroll = (position?: number) => {
-  document.querySelector(".mobile-snap").scrollTo({
-    left: position ?? 0,
+  document.querySelector(".mobile-snap").scrollIntoView({
     behavior: "smooth",
   });
 };
@@ -15,10 +15,10 @@ export const getElementOffset = (
   currentIndex: number
 ) => {
   const element: HTMLDivElement = document.querySelector(
-    `.mobile-snap .section-${sections[currentIndex + 1].id}`
+    `.inner-scroller .section-${sections[currentIndex + 1].id}`
   );
 
-  return element.offsetLeft;
+  return element.scrollTop;
 };
 const MobileNavigation = () => {
   const { sections, currentIndex } = useGripStore();
@@ -54,13 +54,24 @@ const MobileNavigation = () => {
                 className={"flex w-full items-center"}
                 aria-label={`Go to next section`}
                 onClick={(event) => {
-                  if (!sections[currentIndex + 1]) {
-                    event.preventDefault();
-                    handleScroll();
+                  event.preventDefault();
+                  if (sections.length === currentIndex + 1) {
+                    handleIntoView(event, `.main-${sections[0].id}`);
                   } else {
-                    const offset = getElementOffset(sections, currentIndex);
-                    handleScroll(offset);
+                    handleIntoView(
+                      event,
+                      `.main-${sections[currentIndex + 1].id}`
+                    );
                   }
+
+                  console.log(currentIndex, sections[currentIndex + 1]);
+                  // if (!sections[currentIndex + 1]) {
+                  //   event.preventDefault();
+                  //   handleScroll();
+                  // } else {
+                  //   const offset = getElementOffset(sections, currentIndex);
+                  //   handleScroll(offset);
+                  // }
                 }}
               >
                 <span

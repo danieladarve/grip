@@ -103,7 +103,7 @@ button.cta {
   .logo-container {
     @apply pl-[57%] pr-[8%] xl:pr-[7%] pb-[17%] duration-1000 ease-in-out transition-all;
     svg {
-      @apply w-full max-w-[290px];
+      @apply w-full max-w-[237px];
     }
   }
 
@@ -460,7 +460,7 @@ button.cta {
 
 
 .mobile-top-nav {
-  @apply fixed transition-all ease-out duration-200 top-0 z-0 opacity-0 right-0 left-0 w-full z-50 py-5 lg:hidden;
+  @apply fixed transition-all ease-out duration-200 top-0 z-[30] opacity-0 w-full z-50 py-5 lg:hidden;
   &:not(.init) {
     @apply pl-6 pr-0 md:pl-16 lg:pl-28;
   }

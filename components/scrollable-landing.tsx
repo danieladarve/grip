@@ -31,16 +31,11 @@ const InnerLanding = ({ title, cta, mainImage, button }: ScrollableLanding) => {
           </picture>
         </div>
 
-        <div className="flex max-w-[480px] lg:mt-32">
+        <div className="flex max-w-[480px] lg:mt-14">
           <a
             className="whats-grip"
             onClick={(event) =>
-              handleIntoView(
-                event,
-                window.outerWidth >= 1024
-                  ? `.main-${sections[0].id}`
-                  : ".mobile-snap"
-              )
+              handleIntoView(event, `.main-${sections[0].id}`)
             }
           >
             <span className="relative z-10 mb-10 bg-grip-azure">{`What's Grip - scroll please`}</span>
@@ -75,28 +70,28 @@ const InnerLanding = ({ title, cta, mainImage, button }: ScrollableLanding) => {
                 </Button>
               </div>
             )}
-            {cta && sections && (
-              <Button
-                variant="cta"
-                className="light"
-                icon="arrow-down"
-                onClick={(event) =>
-                  handleIntoView(
-                    event,
-                    window.outerWidth >= 1024
-                      ? `.main-${sections[0].id}`
-                      : ".mobile-snap"
-                  )
-                }
-              >
-                {cta}
-              </Button>
-            )}
+            {/*{cta && sections && (*/}
+            {/*  <Button*/}
+            {/*    variant="cta"*/}
+            {/*    className="light"*/}
+            {/*    icon="arrow-down"*/}
+            {/*    onClick={(event) =>*/}
+            {/*      handleIntoView(*/}
+            {/*        event,*/}
+            {/*        window.outerWidth >= 1024*/}
+            {/*          ? `.main-${sections[0].id}`*/}
+            {/*          : ".mobile-snap"*/}
+            {/*      )*/}
+            {/*    }*/}
+            {/*  >*/}
+            {/*    {cta}*/}
+            {/*  </Button>*/}
+            {/*)}*/}
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 z-0 hidden lg:block">
+      <div className="absolute bottom-0 right-0  z-0 hidden px-6 md:pr-14 lg:block lg:pr-16 xl:pr-20 2xl:pr-28">
         <picture>
           <img
             className="w-full max-w-[220px] xl:max-w-[297px]"
@@ -113,23 +108,9 @@ const InnerLanding = ({ title, cta, mainImage, button }: ScrollableLanding) => {
 
 const ScrollableLanding = (props: ScrollableLanding) => {
   const { setCurrentSection, setCurrentIndex, currentIndex } = useGripStore();
-  const { mainImage } = props;
+  // const { mainImage } = props;
   const { ref, inView } = useInView({
     threshold: 0.3,
-  });
-
-  const swiperHandlers = useSwipeable({
-    onSwipedUp: () => {
-      document.querySelector(".mobile-snap-container").scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    },
-    ...{
-      swipeDuration: 500,
-      trackMouse: true,
-      preventScrollOnSwipe: false,
-    },
   });
 
   useEffect(() => {
@@ -147,13 +128,7 @@ const ScrollableLanding = (props: ScrollableLanding) => {
       ref={ref}
       className="scrollable-section landing bg-grip-azure pt-[74px] lg:pt-0"
     >
-      <div className="fullscreen relative hidden w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:block lg:w-1/2 lg:pr-16 xl:pr-20 2xl:pr-28">
-        <InnerLanding {...props} />
-      </div>
-      <div
-        {...swiperHandlers}
-        className="fullscreen relative w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:hidden lg:w-1/2 lg:pr-16 xl:pr-20 2xl:pr-28"
-      >
+      <div className="fullscreen relative w-full px-6 md:pt-10 md:pr-14 md:pl-16 lg:w-1/2 lg:pr-16 xl:pr-20 2xl:pr-28">
         <InnerLanding {...props} />
       </div>
     </section>

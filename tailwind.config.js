@@ -28,9 +28,11 @@ module.exports = {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
+            "--tw-prose-bullets": theme("colors.grip.midnight"),
             p: {
               lineHeight: theme("lineHeight.6"),
               color: theme("colors.grip.midnight"),
+              fontSize: theme("fontSize.base"),
             },
             h2: {
               color: theme("colors.grip.midnight"),

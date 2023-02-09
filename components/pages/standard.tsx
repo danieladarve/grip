@@ -48,15 +48,15 @@ const StandardPage = ({
         formSettings={formSettings}
         footer={footer}
       />
-      <div className="flex w-full flex-wrap px-6 pt-28 pb-32 md:pr-14 md:pl-16 lg:pb-12 lg:pt-40">
-        <div className="mb-8 w-full border-b border-b-black pb-8 ">
+      <div className="flex w-full flex-wrap bg-grip-coral px-6 pt-28 pb-32 font-dm-sans text-base md:pr-14 md:pl-16 lg:pb-12 lg:pt-40">
+        <div className=" mb-8 w-full border-b border-b-black pb-8 ">
           <h1 className="text-grip-azure">{page.title}</h1>
           <div className="h3 mt-8 w-full text-grip-midnight lg:mt-12 lg:w-1/2">
             <PortableText value={page.excerpt} />
           </div>
         </div>
         <div className="w-full">
-          <div className="prose max-w-full lg:columns-2 lg:break-inside-avoid-page lg:gap-10">
+          <div className="prose  max-w-full text-grip-midnight lg:columns-2 lg:break-inside-avoid-page lg:gap-10">
             <PortableText value={page.body} />
           </div>
         </div>

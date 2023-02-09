@@ -4,11 +4,9 @@ import clsx from "clsx";
 
 export const handleIntoView = (event, id) => {
   event.preventDefault();
-  const element: HTMLDivElement = document.querySelector(id);
-  document.querySelector(".main").scrollTo({
-    top: element.offsetTop,
-    behavior: "smooth",
-  });
+  document
+    .querySelector(id)
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 };
 const DesktopNavigation = () => {
   const { sections, currentIndex, current } = useGripStore();

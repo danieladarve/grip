@@ -77,7 +77,7 @@ const SideContact = ({
                 onClick={() => window.open(tryGripBeta)}
                 variant="primary"
               >
-                Login
+                Log in
               </Button>
               <a
                 href="#"
@@ -97,9 +97,9 @@ const SideContact = ({
               <div className="w-5/12">
                 <div className="content">
                   <h3 className="mb-6 ">{title}</h3>
-                  <div className="mb-3 xl:mb-6">
-                    <PortableText value={body} />
-                  </div>
+                  {/*<div className="mb-3 xl:mb-6">*/}
+                  {/*  <PortableText value={body} />*/}
+                  {/*</div>*/}
                   {cta && (
                     <Button
                       onClick={() => setMenuOpen()}
