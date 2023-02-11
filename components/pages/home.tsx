@@ -8,31 +8,13 @@ import clsx from "clsx";
 import { useGripStore } from "../../store/grip-slice";
 import BottomMobileMenu from "@/components/bottom-mobile-menu";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { PortableText } from "@portabletext/react";
-import Button from "@/components/button";
-import Link from "next/link";
-import MobileShapes from "@/components/svg/mobile-shapes";
-import { useInView } from "react-intersection-observer";
-import MobileForm from "@/components/mobile-form";
-import Social from "@/components/social";
-import Close from "@/components/svg/close";
-import Shapes from "@/components/svg/shapes";
-import Logo from "@/components/svg/logo";
 
 const HomePage = ({ settings }: { settings: Settings }) => {
-  const [openForm, setOpenForm] = useState(false);
   const [hideOnScroll, setHideOnScroll] = useState(true);
-  const {
-    currentIndex,
-    mobileFormOpen,
-    menuOpen,
-    setMobileFormOpen,
-    setMenuOpen,
-  } = useGripStore();
+  const { currentIndex, mobileFormOpen, menuOpen } = useGripStore();
   const { sections, side, social, landing, formSettings, formData, footer } =
     settings;
   const { body, cta, title, tryGripBeta } = side;
-  const { facebook, linkedin, instagram } = social;
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -41,16 +23,6 @@ const HomePage = ({ settings }: { settings: Settings }) => {
     },
     [hideOnScroll]
   );
-
-  const { ref, inView } = useInView({
-    /* Optional options */
-    threshold: 0.1,
-  });
-
-  const handleFooterLink = () => {
-    setMobileFormOpen(false);
-    setMenuOpen();
-  };
 
   return (
     <>
@@ -71,7 +43,7 @@ const HomePage = ({ settings }: { settings: Settings }) => {
       <div
         className={clsx(
           "bottom-mobile-nav",
-          currentIndex >= 0 && !inView ? "active" : "",
+          currentIndex >= 0 ? "active" : "",
           {
             "open overflow-y-hidden": menuOpen,
           },

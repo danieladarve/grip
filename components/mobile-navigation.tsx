@@ -1,25 +1,8 @@
-import type { GripStateSection } from "../store/grip-slice";
 import { useGripStore } from "../store/grip-slice";
 import ArrowDown from "@/components/svg/arrow-down";
 import clsx from "clsx";
 import { handleIntoView } from "@/components/desktop-navigation";
 
-export const handleScroll = (position?: number) => {
-  document.querySelector(".mobile-snap").scrollIntoView({
-    behavior: "smooth",
-  });
-};
-
-export const getElementOffset = (
-  sections: GripStateSection[],
-  currentIndex: number
-) => {
-  const element: HTMLDivElement = document.querySelector(
-    `.inner-scroller .section-${sections[currentIndex + 1].id}`
-  );
-
-  return element.scrollTop;
-};
 const MobileNavigation = () => {
   const { sections, currentIndex } = useGripStore();
 

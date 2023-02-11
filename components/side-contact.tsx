@@ -7,7 +7,6 @@ import type {
   SideContact as Side,
   SocialLinks,
 } from "@/lib/sanity/groq";
-import { PortableText } from "@portabletext/react";
 import { useGripStore } from "../store/grip-slice";
 import clsx from "clsx";
 import Button from "@/components/button";

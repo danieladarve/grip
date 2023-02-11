@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import type { Post } from "@/lib/sanity/groq";
 import clsx from "clsx";
 import Button from "@/components/button";
-import { urlForImage } from "@/lib/sanity/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";

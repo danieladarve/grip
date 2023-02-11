@@ -7,7 +7,6 @@ import { useGripStore } from "../store/grip-slice";
 import { handleIntoView } from "@/components/desktop-navigation";
 import type { SocialLinks } from "@/lib/sanity/groq";
 import LongArrow from "@/components/svg/long-arrow";
-import { useSwipeable } from "react-swipeable";
 interface ScrollableLanding extends Landing {
   isLast?: boolean;
   social?: SocialLinks;

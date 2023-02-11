@@ -4,13 +4,8 @@ import { useGripStore } from "../store/grip-slice";
 import ScrollableSection from "@/components/scrollable-section";
 import ScrollableLanding from "@/components/scrollable-landing";
 import React, { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
-import MobileNavigation, {
-  getElementOffset,
-  handleScroll,
-} from "@/components/mobile-navigation";
-import { useSwipeable } from "react-swipeable";
+import MobileNavigation from "@/components/mobile-navigation";
 
 export interface ScrollerProps {
   landing?: Section;
